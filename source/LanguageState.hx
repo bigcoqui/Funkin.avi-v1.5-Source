@@ -36,9 +36,8 @@ class LanguageState extends MusicBeatState
 	{
 		super.create();
 
-        FlxG.mouse.visible = true;
+    FlxG.mouse.visible = true;
 
-		
 		if(ClientPrefs.funiShaders)
 					{
 						chrom = new ChromaticAberrationEffect();
@@ -62,8 +61,6 @@ class LanguageState extends MusicBeatState
 						if(blurThisShit != null)
 						blurThisShit.setBlur(0.4);
 						//uncomment these fucking pieces of shit if you feel like testing it.
-
-
 					}
         //removed cus value exeption thing, just in case -jsa | I added it back, but it won't work anyways if people turn it off at the shaders warning menu -don
 	
@@ -77,24 +74,22 @@ class LanguageState extends MusicBeatState
 		warnText.screenCenter(X);
 		add(warnText);
 
-        	otherText = new FlxText(0, 40, FlxG.width,
-            	"(Puede Ser Cambiado En Opciones/it Can be Changed In Options)",
-                32);
-            	otherText.setFormat(Paths.font("NewWaltDisneyFontRegular-BPen.ttf"), 32, FlxColor.WHITE, CENTER);
-            	otherText.screenCenter(X);
-            	add(otherText);
+    otherText = new FlxText(0, 40, FlxG.width, "(Puede Ser Cambiado En Opciones/it Can be Changed In Options)", 32);
+    otherText.setFormat(Paths.font("NewWaltDisneyFontRegular-BPen.ttf"), 32, FlxColor.WHITE, CENTER);
+    otherText.screenCenter(X);
+    add(otherText);
 
-                spanish = new FlxSprite().loadGraphic(Paths.image('language/Spanish'));
-                spanish.screenCenter(Y);
-                spanish.antialiasing = ClientPrefs.globalAntialiasing;
-                spanish.x = 250;
-                add(spanish);
+    spanish = new FlxSprite().loadGraphic(Paths.image('language/Spanish'));
+    spanish.screenCenter(Y);
+    spanish.antialiasing = ClientPrefs.globalAntialiasing;
+    spanish.x = 250;
+    add(spanish);
 
-                english = new FlxSprite().loadGraphic(Paths.image('language/English'));
-                english.screenCenter(Y);
-                spanish.antialiasing = ClientPrefs.globalAntialiasing;
-                english.x = 750;
-                add(english);
+    english = new FlxSprite().loadGraphic(Paths.image('language/English'));
+    english.screenCenter(Y);
+    spanish.antialiasing = ClientPrefs.globalAntialiasing;
+    english.x = 750;
+    add(english);
 
 		blackFade = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(blackFade);
@@ -141,7 +136,6 @@ class LanguageState extends MusicBeatState
 	{
 		
 		if(!languageSelected) {
-				
 				if(FlxG.mouse.overlaps(spanish) && FlxG.mouse.justPressed) {
 					languageSelected = true;
 					FlxTransitionableState.skipNextTransIn = true;
