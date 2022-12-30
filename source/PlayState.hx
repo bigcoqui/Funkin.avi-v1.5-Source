@@ -442,7 +442,7 @@ class PlayState extends MusicBeatState
 		modeFill = new FillScaleMode();
 		modeFixed = new FixedScaleMode();
 		modeRatio = new RatioScaleMode();
-		modeRelative = new RelativeScalemode(0.75, 0.75);
+		modeRelative = new RelativeScaleMode(0.75, 0.75);
 		modeStage = new StageSizeScaleMode();
 		modePixel = new PixelPerfectScaleMode();
 
