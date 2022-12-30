@@ -207,6 +207,10 @@ class ExtrasState extends MusicBeatState{
 		grain.scale.y = 1.1;
 		add(grain);
 
+		#if android
+		addVirtualPad(LEFT_FULL, A_B);
+		#end
+
 		super.create();
 	}
 
