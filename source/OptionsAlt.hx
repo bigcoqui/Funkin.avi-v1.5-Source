@@ -114,7 +114,11 @@ class OptionsAlt extends MusicBeatState
 		grain.scale.x = 1.1;
 		grain.scale.y = 1.1;
 		add(grain);
-		
+
+		#if android
+		addVirtualPad(UP_DOWN, A_B_C);
+		#end
+
 		super.create();
 	}
 
@@ -141,6 +145,15 @@ class OptionsAlt extends MusicBeatState
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
 		}
+
+		#if android
+		if (virtualPad.buttonC.justPressed) {
+			#if android
+			removeVirtualPad();
+			#end
+			openSubState(new android.AndroidControlsSubState());
+		}
+		#end
 	}
 	
 	function changeSelection(change:Int = 0) {
