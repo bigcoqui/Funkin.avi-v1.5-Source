@@ -256,6 +256,8 @@ class PlayState extends MusicBeatState
 	'coolswag'];
 	var dialogueJson:DialogueFile = null;
 
+	var waltText:FlxText;
+
 	var halloweenBG:BGSprite;
 	var halloweenWhite:BGSprite;
 
@@ -7178,15 +7180,15 @@ class PlayState extends MusicBeatState
 									switch(note.noteType)
 									{
 										case 'AVI Sing':
-											aviMick.animation.play('AVILeft');
+											dad.animation.play('AVILeft');
 										case 'Rookie Sing':
-											rookieMick.animation.play('rookieLeft');
+											dad.animation.play('rookieLeft');
 										case 'WI Sing':
-											WIMick.animation.play('WILeft');
+											dad.animation.play('WILeft');
 										case 'Randy Sing':
-											randyMick.animation.play('randyLeft');
+											dad.animation.play('randyLeft');
 										case 'Cog Sing':
-											cogMick.animation.play('CogLeft');
+											dad.animation.play('CogLeft');
 									}	
 								}else{
 									animToPlay = 'singLEFT';
@@ -7248,15 +7250,15 @@ class PlayState extends MusicBeatState
 									switch(note.noteType)
 									{
 										case 'AVI Sing':
-											aviMick.animation.play('AVIDown');
+											dad.animation.play('AVIDown');
 										case 'Rookie Sing':
-											rookieMick.animation.play('rookieDown');
+											dad.animation.play('rookieDown');
 										case 'WI Sing':
-											WIMick.animation.play('WIDown');
+											dad.animation.play('WIDown');
 										case 'Randy Sing':
-											randyMick.animation.play('randyDown');
+											dad.animation.play('randyDown');
 										case 'Cog Sing':
-											cogMick.animation.play('CogDown');
+											dad.animation.play('CogDown');
 									}	
 								}else{
 									animToPlay = 'singDOWN';
@@ -7316,15 +7318,15 @@ class PlayState extends MusicBeatState
 									switch(note.noteType)
 									{
 										case 'AVI Sing':
-											aviMick.animation.play('AVIUp');
+											dad.animation.play('AVIUp');
 										case 'Rookie Sing':
-											rookieMick.animation.play('rookieUp');
+											dad.animation.play('rookieUp');
 										case 'WI Sing':
-											WIMick.animation.play('WIUp');
+											dad.animation.play('WIUp');
 										case 'Randy Sing':
-											randyMick.animation.play('randyUp');
+											dad.animation.play('randyUp');
 										case 'Cog Sing':
-											cogMick.animation.play('CogUp');
+											dad.animation.play('CogUp');
 									}	
 								}else{
 									animToPlay = 'singUP';
@@ -7384,15 +7386,15 @@ class PlayState extends MusicBeatState
 									switch(note.noteType)
 									{
 										case 'AVI Sing':
-											aviMick.animation.play('AVIRight');
+											dad.animation.play('AVIRight');
 										case 'Rookie Sing':
-											rookieMick.animation.play('rookieRight');
+											dad.animation.play('rookieRight');
 										case 'WI Sing':
-											WIMick.animation.play('WIRight');
+											dad.animation.play('WIRight');
 										case 'Randy Sing':
-											randyMick.animation.play('randyRight');
+											dad.animation.play('randyRight');
 										case 'Cog Sing':
-											cogMick.animation.play('CogRight');
+											dad.animation.play('CogRight');
 									}	
 								}else{
 									animToPlay = 'singRIGHT';
@@ -7473,27 +7475,27 @@ class PlayState extends MusicBeatState
 				case 'AVI Sing':
 					new FlxTimer().start(1.5, function(tmr:FlxTimer)
 					{
-						aviMick.animation.play('idle');
+						dad.animation.play('idle');
 					});
 				case 'Rookie Sing':
 					new FlxTimer().start(1.5, function(tmr:FlxTimer)
 					{
-						rookieMick.animation.play('idle');
+						dad.animation.play('idle');
 					});
 				case 'WI Sing':
 					new FlxTimer().start(1.5, function(tmr:FlxTimer)
 					{
-						WIMick.animation.play('idle');
+						dad.animation.play('idle');
 					});
 				case 'Randy Sing':
 					new FlxTimer().start(1.5, function(tmr:FlxTimer)
 					{
-						randyMick.animation.play('idle');
+						dad.animation.play('idle');
 					});
 				case 'Cog Sing':
 					new FlxTimer().start(1.5, function(tmr:FlxTimer)
 					{
-						cogMick.animation.play('idle');
+						dad.animation.play('idle');
 					});
 			}
 		}
