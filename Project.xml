@@ -3,7 +3,7 @@
 	<!-- _________________________ Application Settings _________________________ -->
 
 	<!--Go To Ur AppData Folder btw -->
-	<app title="Funkin.avi" file="Funkin.avi" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.8" company="Dunkin Funkin Team" /> 
+	<app title="Funkin.avi" file="Funkin.avi" packageName="com.theorda.funkinavi" package="com.theorda.funkinavi" main="Main" version="0.2.8" company="Dunkin Funkin Team" /> 
 	<!--yes i changed it because ValueExeption-->
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
@@ -32,7 +32,7 @@
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
 
 	<!--Mobile-specific-->
-	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
+	<window if="mobile" orientation="landscape" fullscreen="true" width="1280" height="720" resizable="false"/>
 
 	<!--Switch-specific-->
 	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
@@ -54,7 +54,7 @@
 	<define name="TITLE_SCREEN_EASTER_EGG" if="officialBuild"/> <!-- DELETE THE if="officialBuild" for enabling this on an unofficial build -->
 	<define name="MP3_ALLOWED"/>
 	<define name="WAV_ALLOWED"/>
-	<define name="Goofy_Ahh_Crash_Thing" if="desktop" /> <!--0.6 shit-->
+	<define name="Goofy_Ahh_Crash_Thing" if="desktop || android" /> <!--0.6 shit-->
 
 	<define name="avi_debug" if="debug" />
 
@@ -103,6 +103,7 @@
 		NOT USING A DIRECT THING TO THE ASSET!!!
 	-->
 	<assets path="assets/fonts" embed='true'/>
+	<assets path="assets/android" if='android'/>
 	<assets path="example_mods/scripts" embed='true'/>
 	<!-- _______________________________ Libraries ______________________________ -->
 	
