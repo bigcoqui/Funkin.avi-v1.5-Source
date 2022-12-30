@@ -55,8 +55,6 @@ class FlashingState extends MusicBeatState
 						if(blurThisShit != null)
 						blurThisShit.setBlur(0.4);
 						//uncomment these fucking pieces of shit if you feel like testing it.
-
-
 					}
 
 	
@@ -68,8 +66,8 @@ class FlashingState extends MusicBeatState
 			"WARNING:\n
 			This Mod contains some flashing lights,\n
 			disturbing imagery, and disturbing themes of suicide.\n
-			Press ENTER to continue to the game.\n
-			Press ESCAPE to disable flashes now.\n
+			Press A to continue to the game.\n
+			Press B to disable flashes now.\n
 			You've been warned!",
 			32);
 		} else if(ClientPrefs.language == "Spanish") {
@@ -77,8 +75,8 @@ class FlashingState extends MusicBeatState
 			"ADVERTENCIA:\n
 			Este mod contiene algunas luces intermitentes,\n
 			imágenes perturbadoras y temas perturbadores de suicidio.\n
-			Presiona ENTER para continuar con el juego.\n
-			Presiona ESCAPE para deshabilitar los flashes ahora.\n
+			Presiona A para continuar con el juego.\n
+			Presiona B para deshabilitar los flashes ahora.\n
 			¡Has sido advertido!",
 			32);
 		}
@@ -108,6 +106,10 @@ class FlashingState extends MusicBeatState
 		add(grain);
 		
 		FlxTween.tween(blackFade, {alpha: 0}, 1); //duplicatin' code from Disclaimer since this is BEFORE picking your language now.
+
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
 	}
 
 	function addShader(effect:ShaderEffect)
