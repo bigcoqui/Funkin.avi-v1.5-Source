@@ -1,6 +1,5 @@
 package;
 
-import GameJolt.GameJoltAPI;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
@@ -31,9 +30,6 @@ class NoticeState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-
-		GameJoltAPI.connect();
-        GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
 
 		if(ClientPrefs.funiShaders)
 					{
@@ -69,22 +65,22 @@ class NoticeState extends MusicBeatState
 		warnText = new FlxText(0, 0, FlxG.width,
 			"NOTICE:\n
 			This Mod contains some higher end graphics,\n
-			thus causing lag or crashing your PC.\n
-			Press ENTER to keep Shaders on.\n
-			Press ESCAPE to Disable them.\n
+			thus causing lag or crashing your phone.\n
+			Press A to keep Shaders on.\n
+			Press B to Disable them.\n
 			Thank you for playing!",
 			32);
 		} else if(ClientPrefs.language == "Spanish") {
 		warnText = new FlxText(0, 0, FlxG.width,
 			"AVISO:\n
 			Este Mod contiene algunos gráficos de gama alta,\n
-			causando así retrasos o fallas en su PC.\n
-			Presiona ENTER para mantener Shaders activados.\n
-			Presiona ESCAPE para deshabilitarlos.\n
+			causando así retrasos o fallas en su telefono.\n
+			Presiona A para mantener Shaders activados.\n
+			Presiona B para deshabilitarlos.\n
 			¡Gracias por jugar!",
 			32);
 		}
-			
+
 		warnText.setFormat(Paths.font("NewWaltDisneyFontRegular-BPen.ttf"), 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
@@ -106,6 +102,10 @@ class NoticeState extends MusicBeatState
 		grain.scale.x = 1.1;
 		grain.scale.y = 1.1;
 		add(grain);
+
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
 	}
 
 	function addShader(effect:ShaderEffect)
