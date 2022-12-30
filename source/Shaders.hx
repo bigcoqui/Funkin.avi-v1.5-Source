@@ -586,10 +586,10 @@ class Tiltshift extends FlxShader
 		 
 		// I am hardcoding the constants like a jerk
 			
-		uniform float bluramount  = 1.0;
-		uniform float center      = 1.0;
-		const float stepSize    = 0.004;
-		const float steps       = 3.0;
+		uniform float bluramount;
+		uniform float center;
+		const float stepSize;
+		const float steps;
 		 
 		const float minOffs     = (float(steps-1.0)) / -2.0;
 		const float maxOffs     = (float(steps-1.0)) / +2.0;
@@ -630,6 +630,11 @@ class Tiltshift extends FlxShader
 	public function new()
 	{
 		super();
+
+		bluramount.value = [1.0];
+		center.value = [1.0];
+		stepSize.value = [0.004];
+		steps.value = [3.0];
 	}
 }
 class GreyscaleEffect extends Effect{
@@ -683,12 +688,7 @@ class GrainEffect extends Effect {
 	public function update(elapsed){
 		shader.uTime.value[0] += elapsed;
 	}
-	
-	
-	
-	
 }
-
 
 class Grain extends FlxShader
 {
@@ -722,9 +722,9 @@ class Grain extends FlxShader
 
 		const float grainamount = 0.05; //grain amount
 		bool colored = false; //colored noise?
-		uniform float coloramount = 0.6;
-		uniform float grainsize = 1.6; //grain particle size (1.5 - 2.5)
-		uniform float lumamount = 1.0; //
+		uniform float coloramount;
+		uniform float grainsize; //grain particle size (1.5 - 2.5)
+		uniform float lumamount; //
 	uniform bool lockAlpha = false;
 
 		//a random texture generator, but you can also use a pre-computed perturbation texture
@@ -842,9 +842,11 @@ class Grain extends FlxShader
 	public function new()
 	{
 		super();
+		
+		coloramount.value = [0.6];
+		grainsize.value = [1.6];
+		lumamount.value = [1.0];
 	}
-	
-	
 }
 
 class VCRDistortionEffect extends Effect
@@ -1044,10 +1046,10 @@ class ThreeDEffect extends Effect{
 class ThreeDShader extends FlxShader{
 	@:glFragmentSource('
 	#pragma header
-	uniform float xrot = 0.0;
-	uniform float yrot = 0.0;
-	uniform float zrot = 0.0;
-	uniform float dept = 0.0;
+	uniform float xrot;
+	uniform float yrot;
+	uniform float zrot;
+	uniform float dept;
 	float alph = 0;
 float plane( in vec3 norm, in vec3 po, in vec3 ro, in vec3 rd ) {
     float de = dot(norm, rd);
@@ -1119,8 +1121,12 @@ void main() {
 	
 	public function new(){
 		super();
+
+    xrot.value = [0.0];
+    yrot.value = [0.0];
+    zrot.value = [0.0];
+    dept.value = [0.0];
 	}
-	
 }
 
 //Boing! by ThaeHan
