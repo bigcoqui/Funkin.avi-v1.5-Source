@@ -4937,7 +4937,6 @@ class PlayState extends MusicBeatState
         windowBoyfriend.stage.addEventListener("keyDown", FlxG.keys.onKeyDown);
         @:privateAccess
         windowBoyfriend.stage.addEventListener("keyUp", FlxG.keys.onKeyUp);
-		.getWindowsTransparent();
         // Application.current.window.x = Std.int(display.width / 2) - 640;
         // Application.current.window.y = Std.int(display.height / 2);
 
