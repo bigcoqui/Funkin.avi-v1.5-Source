@@ -5011,7 +5011,6 @@ class PlayState extends MusicBeatState
         spr.graphics.beginBitmapFill(bg, m);
         spr.graphics.drawRect(0, 0, bg.width, bg.height);
         spr.graphics.endFill();
-		.getWindowsTransparent();
         FlxG.mouse.useSystemCursor = true;
 
       //  Application.current.window.resize(640, 480);
@@ -5023,22 +5022,14 @@ class PlayState extends MusicBeatState
         dadWin.graphics.endFill();
         dadScrollWin.scrollRect = new Rectangle();
 	    windowDad.stage.addChild(spr);
-		.getWindowsTransparent();
         windowDad.stage.addChild(dadScrollWin);
-		.getWindowsTransparent();
         dadScrollWin.addChild(dadWin);
-		.getWindowsTransparent();
         dadScrollWin.scaleX = 0.7;
-		.getWindowsTransparent();
         dadScrollWin.scaleY = 0.7;
-		.getWindowsTransparent();
         dadGroup.visible = false;
-		.getWindowsTransparent();
         // uncomment the line above if you want it to hide the dad ingame and make it visible via the windoe
         Application.current.window.focus();
-		.getWindowsTransparent();
 		FlxG.autoPause = false;
-		.getWindowsTransparent();
     }
 
 	function openChartEditor()
