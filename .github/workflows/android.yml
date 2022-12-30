@@ -56,6 +56,7 @@ jobs:
           haxelib install hscript
           haxelib install flixel-addons
           haxelib git tentools https://github.com/TentaRJ/tentools.git
+          haxelib git systools https://github.com/haya3218/systools
           haxelib git linc_luajit https://github.com/MAJigsaw77/linc_luajit
           haxelib git extension-webview https://github.com/MatheusSilver/extension-webview --quiet
           haxelib git extension-videoview https://github.com/MAJigsaw77/extension-videoview --quiet
