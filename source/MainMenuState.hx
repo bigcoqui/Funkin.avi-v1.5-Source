@@ -431,6 +431,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('funkinAVI/menu/select_sfx'), 0.7);
 		trace('Giving achievement "friday_night_play"');
 	}
+	#end
 
 	function addShader(effect:ShaderEffect)
 	{
