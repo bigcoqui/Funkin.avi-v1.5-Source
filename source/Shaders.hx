@@ -588,8 +588,8 @@ class Tiltshift extends FlxShader
 			
 		uniform float bluramount;
 		uniform float center;
-		const float stepSize;
-		const float steps;
+		const float stepSize = 0.004;
+		const float steps = 3.0;
 		 
 		const float minOffs     = (float(steps-1.0)) / -2.0;
 		const float maxOffs     = (float(steps-1.0)) / +2.0;
@@ -633,8 +633,6 @@ class Tiltshift extends FlxShader
 
 		bluramount.value = [1.0];
 		center.value = [1.0];
-		stepSize.value = [0.004];
-		steps.value = [3.0];
 	}
 }
 class GreyscaleEffect extends Effect{
