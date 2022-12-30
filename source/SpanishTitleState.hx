@@ -1,6 +1,5 @@
 package;
 
-import GameJolt.GameJoltAPI;
 #if desktop
 import Discord.DiscordClient;
 import sys.thread.Thread;
@@ -39,14 +38,11 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 import PlayState;
-import GameJolt;
-import GameJolt.GameJoltAPI;
 import IndieCrossShaderShit.FXHandler;
 
 using StringTools;
 typedef TitleDumbData =
 {
-
 	titlex:Float,
 	titley:Float,
 	startx:Float,
@@ -90,8 +86,9 @@ class SpanishTitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		GameJolt.GameJoltAPI.connect();
-        GameJolt.GameJoltAPI.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken);
+	  #if android
+	  FlxG.android.preventDefaultKeys = [BACK];
+	  #end
 
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
@@ -408,14 +405,10 @@ class SpanishTitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list)
-		{
 			if (touch.justPressed)
-			{
 				pressedEnter = true;
-			}
-		}
 		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
