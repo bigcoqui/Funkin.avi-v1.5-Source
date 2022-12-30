@@ -374,7 +374,7 @@ class SpanishTitleState extends MusicBeatState
 			app = Sys.programPath();
 
 			// Launch application:
-			var result = systools.win.Tools.createProcess(app // app. path
+			/*var result = systools.win.Tools.createProcess(app // app. path
 				, args // app. args
 				, workingdir // app. working directory
 				, false // do not hide the window
@@ -387,7 +387,7 @@ class SpanishTitleState extends MusicBeatState
 				System.exit(1337);
 			}
 			else
-				throw "Fallao En Reiniciar la Ptm";
+				throw "Fallao En Reiniciar la Ptm";*/
 			#end
 		}
 
