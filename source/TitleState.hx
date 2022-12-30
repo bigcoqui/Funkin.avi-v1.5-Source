@@ -413,7 +413,7 @@ class TitleState extends MusicBeatState
 			app = Sys.programPath();
 
 			// Launch application:
-			var result = systools.win.Tools.createProcess(app // app. path
+			/*var result = systools.win.Tools.createProcess(app // app. path
 				, args // app. args
 				, workingdir // app. working directory
 				, false // do not hide the window
@@ -426,7 +426,7 @@ class TitleState extends MusicBeatState
 				System.exit(1337);
 			}
 			else
-				throw "Failed to restart bich";
+				throw "Failed to restart bich";*/
 			#end
 		}
 
