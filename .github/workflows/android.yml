@@ -48,7 +48,7 @@ jobs:
           haxelib install hxcpp > /dev/null
           haxelib install lime 7.9.0
           haxelib install hxCodec
-          haxelib install openfl 9.1.0
+          haxelib install openfl 9.0.2
           haxelib --never install flixel
           haxelib run lime setup flixel
           haxelib install flixel-tools
