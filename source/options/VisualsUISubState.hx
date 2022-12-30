@@ -48,7 +48,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"If checked, cutscenes will show (this will affect Freeplay too).",
 			'cutscenes',
 			'bool',
-			true);
+			false);
 		addOption(option);
 
 		var option:Option = new Option('Note Splashes',
@@ -117,7 +117,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"If checked, Score Text under the Health Bar \ndisplays less text",
 			'simplifiedScore',
 			'bool',
-		        false);
+		false);
 		addOption(option);
 
 		var option:Option = new Option('Camera Movement',
@@ -188,8 +188,8 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-		
-		#if !mobile
+
+		//#if !mobile
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
@@ -197,7 +197,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
-		#end
+		//#end
 		
 		var option:Option = new Option('Pause Screen Song:',
 			"What song do you prefer for the Pause Screen?",
@@ -239,11 +239,11 @@ class VisualsUISubState extends BaseOptionsMenu
 		super.destroy();
 	}
 
-	#if !mobile
+	//#if !mobile
 	function onChangeFPSCounter()
 	{
 		if(Main.fpsVar != null)
 			Main.fpsVar.visible = ClientPrefs.showFPS;
 	}
-	#end
+	//#end
 }
