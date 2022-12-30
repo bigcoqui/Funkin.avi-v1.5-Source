@@ -102,7 +102,7 @@ class EpicSelectorWOOO extends MusicBeatState {
 			else freeplayCats = ['Jugar', '???', '???'];
 		}		
 
-        BG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+    BG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		BG.updateHitbox();
 		BG.screenCenter();
 		add(BG);
@@ -124,6 +124,10 @@ class EpicSelectorWOOO extends MusicBeatState {
 			grpCats.add(catsText);
 		}
 
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+
 		var scratchStuff:FlxSprite = new FlxSprite();
 		scratchStuff.frames = Paths.getSparrowAtlas('funkinAVI-filters/scratchShit');
 		scratchStuff.animation.addByPrefix('idle', 'scratch thing 1', 24, true);
@@ -142,8 +146,8 @@ class EpicSelectorWOOO extends MusicBeatState {
 		grain.scale.y = 1.1;
 		add(grain);
 
-        changeSelection();
-        super.create();
+    changeSelection();
+    super.create();
     }
 
 	function clearShader()
