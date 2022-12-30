@@ -26,6 +26,7 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 #end
+import lime.system.System;
 
 class Main extends Sprite
 {
@@ -40,6 +41,8 @@ class Main extends Sprite
 	public static var fpsVar:FPS;
 
 	public static var focusMusicTween:FlxTween;
+
+  public static var path:String = System.applicationStorageDirectory;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -100,7 +103,7 @@ class Main extends Sprite
 		ClientPrefs.loadDefaultKeys();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		#if !mobile
+		//#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
@@ -108,7 +111,7 @@ class Main extends Sprite
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
-		#end
+		//#end
 
 		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
@@ -187,7 +190,7 @@ class Main extends Sprite
 			}
 		}
 
-		/*function onCrash(e:UncaughtErrorEvent):Void
+		function onCrash(e:UncaughtErrorEvent):Void
 			{
 				var errMsg:String = "";
 				var path:String;
@@ -197,7 +200,7 @@ class Main extends Sprite
 				dateNow = StringTools.replace(dateNow, " ", "_");
 				dateNow = StringTools.replace(dateNow, ":", "'");
 		
-				path = "./crash/" + "FunkinAVI_" + dateNow + ".txt";
+				path = Main.path + "crash/" + "FunkinAVI_" + dateNow + ".txt";
 		
 				errMsg = "Version: " + Lib.application.meta["version"] + "\n";
 		
@@ -214,8 +217,8 @@ class Main extends Sprite
 		
 				errMsg += "\nUncaught Error: " + e.error + "\nReport the error here: https://discord.gg/cZydhxFYpp";
 		
-				if (!FileSystem.exists("./crash/"))
-					FileSystem.createDirectory("./crash/");
+				if (!FileSystem.exists(Main.path + "crash/"))
+					FileSystem.createDirectory(Main.path + "crash/");
 		
 				File.saveContent(path, errMsg + "\n");
 		
@@ -228,12 +231,12 @@ class Main extends Sprite
 				crashDialoguePath += ".exe";
 				#end
 		
-				if (FileSystem.exists("./" + crashDialoguePath))
+				if (FileSystem.exists(crashDialoguePath))
 				{
 					Sys.println("Found crash dialog: " + crashDialoguePath);
 		
 					#if linux
-					crashDialoguePath = "./" + crashDialoguePath;
+					crashDialoguePath = crashDialoguePath;
 					#end
 					new Process(crashDialoguePath, [path]);
 				}
@@ -244,6 +247,6 @@ class Main extends Sprite
 				}
 		
 				Sys.exit(1);
-			}*/
+			}
 }
 	
