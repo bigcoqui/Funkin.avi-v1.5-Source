@@ -240,7 +240,10 @@ class EpisodesState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 		}
-		
+
+		#if android
+		addVirtualPad(LEFT_FULL, A_B);
+		#end
 
 		var scratchStuff:FlxSprite = new FlxSprite();
 		scratchStuff.frames = Paths.getSparrowAtlas('funkinAVI-filters/scratchShit');
