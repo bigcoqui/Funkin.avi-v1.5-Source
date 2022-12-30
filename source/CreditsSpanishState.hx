@@ -273,6 +273,10 @@ class CreditsSpanishState extends MusicBeatState
 		intendedColor = bg.color;
 		changeSelection();
 
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+
 		var scratchStuff:FlxSprite = new FlxSprite();
 		scratchStuff.frames = Paths.getSparrowAtlas('funkinAVI-filters/scratchShit');
 		scratchStuff.animation.addByPrefix('idle', 'scratch thing 1', 24, true);
