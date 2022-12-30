@@ -121,7 +121,7 @@
 	<haxelib name="discord_rpc" if="desktop"/>
 	<!--Gamejolt stuff-->
 	<haxelib name="tentools" />
-    <haxelib name="systools" />
+    <haxelib name="systools" if="windows"/>
     <ndll name="systools" haxelib="systools" />
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
