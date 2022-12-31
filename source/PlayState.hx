@@ -3,8 +3,6 @@ package; //Lord X Porn
 import Achievements;
 import DialogueBoxPsych;
 import FunkinLua;
-import GameJolt.GameJoltAPI;
-import GameJolt;
 import IndieCrossShaderShit.FXHandler;
 import Note.EventNote;
 import Section.SwagSection;
@@ -6316,23 +6314,7 @@ class PlayState extends MusicBeatState
 			{
 				trace('WENT BACK TO FREEPLAY??');
 
-				if(SONG.song == "Isolated Old") {
-			    	GameJoltAPI.addScore(songScore, 760676);
-				} else if(SONG.song == "Isolated") {
-					GameJoltAPI.addScore(songScore, 760684);
-				} else if(SONG.song == "Hunted") {
-					GameJoltAPI.addScore(songScore, 760677);
-				} else if(SONG.song == "Twisted Grins") {
-					GameJoltAPI.addScore(songScore, 760679);
-				} else if(SONG.song == "Lunacy") {
-					GameJoltAPI.addScore(songScore, 760686);
-				} else if(SONG.song == "Isolated Old") {
-					GameJoltAPI.addScore(songScore, 755529);
-				} else if(SONG.song == "Cycled Sins") {
-					GameJoltAPI.addScore(songScore, 755530);
-				} else if(SONG.song == "Malfunction") {
-					GameJoltAPI.addScore(songScore, 755531);
-				}
+
 
 				//Story Songs later Lol, Thanks Tenta
 				//note: don't put it yet because it will be public
@@ -10136,8 +10118,7 @@ class PlayState extends MusicBeatState
 							if(SONG.song == 'Malfunction')
 							{
 								unlock = true;
-								if(!GameJoltAPI.checkTrophy(169789))
-									GameJoltAPI.getTrophy(169789);		
+
 							}
 						}
 					case 'malfunction_nomiss' | 'relapse_nomiss':
@@ -10148,8 +10129,7 @@ class PlayState extends MusicBeatState
 								if(achievementName == 'malfunction_nomiss')
 								{
 									unlock = true;
-									if(!GameJoltAPI.checkTrophy(169791))
-										GameJoltAPI.getTrophy(169791);		
+
 								}
 							}
 							if(SONG.song == 'Cycled Sins')
@@ -10157,8 +10137,7 @@ class PlayState extends MusicBeatState
 								if(achievementName == 'relapse_nomiss')
 								{ 
 									unlock = true;
-									if(!GameJoltAPI.checkTrophy(169790))
-										GameJoltAPI.getTrophy(169790);
+
 								}
 							}
 						}
@@ -10168,8 +10147,7 @@ class PlayState extends MusicBeatState
 						}
 					case 'ur_good':
 						if(ratingPercent >= 1 && !usedPractice) {
-							if(!GameJoltAPI.checkTrophy(169967))
-								GameJoltAPI.getTrophy(169967);
+
 							unlock = true;
 						}
 				}

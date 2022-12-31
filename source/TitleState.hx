@@ -1,5 +1,6 @@
 package;
 
+
 #if desktop
 import Discord.DiscordClient;
 import sys.thread.Thread;
@@ -23,6 +24,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import options.GraphicsSettingsSubState;
+//import flixel.graphics.FlxGraphic as FlixelGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
@@ -41,6 +43,7 @@ import openfl.filters.ShaderFilter;
 import Shaders;
 import openfl.Assets;
 import PlayState;
+
 import IndieCrossShaderShit.FXHandler;
 
 using StringTools;
@@ -99,9 +102,9 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-	  #if android
-	  FlxG.android.preventDefaultKeys = [BACK];
-	  #end
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
 
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
@@ -219,6 +222,25 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
+			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
+			diamond.persist = true;
+			diamond.destroyOnNoUse = false;
+			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
+				new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
+			FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
+				{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
+			transIn = FlxTransitionableState.defaultTransIn;
+			transOut = FlxTransitionableState.defaultTransOut;*/
+
+			// HAD TO MODIFY SOME BACKEND SHIT
+			// IF THIS PR IS HERE IF ITS ACCEPTED UR GOOD TO GO
+			// https://github.com/HaxeFlixel/flixel-addons/pull/348
+
+			// var music:FlxSound = new FlxSound();
+			// music.loadStream(Paths.music('funkinAVI/menu/MenuMusic'));
+			// FlxG.sound.list.add(music);
+			// music.play();
+
 			if(FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('funkinAVI/menu/MenuMusic'), 0);
 
@@ -252,6 +274,8 @@ class TitleState extends MusicBeatState
 						if(blurThisShit != null)
 						blurThisShit.setBlur(0.4);
 						//uncomment these fucking pieces of shit if you feel like testing it.
+
+
 					}
 
 		var bg:FlxSprite = new FlxSprite();
@@ -402,7 +426,7 @@ class TitleState extends MusicBeatState
 
 	public static function restartGame()
 		{
-			#if cpp
+			#if windows 
 			var os = Sys.systemName();
 			var args = "Test.hx";
 			var app = "";
@@ -413,7 +437,7 @@ class TitleState extends MusicBeatState
 			app = Sys.programPath();
 
 			// Launch application:
-			/*var result = systools.win.Tools.createProcess(app // app. path
+			var result = systools.win.Tools.createProcess(app // app. path
 				, args // app. args
 				, workingdir // app. working directory
 				, false // do not hide the window
@@ -426,12 +450,13 @@ class TitleState extends MusicBeatState
 				System.exit(1337);
 			}
 			else
-				throw "Failed to restart bich";*/
+				throw "Failed to restart bich";
 			#end
 		}
 
 	override function update(elapsed:Float)
 	{
+
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
@@ -443,10 +468,14 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
-		#if android
+		#if mobile
 		for (touch in FlxG.touches.list)
+		{
 			if (touch.justPressed)
+			{
 				pressedEnter = true;
+			}
+		}
 		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
@@ -982,13 +1011,10 @@ class TitleState extends MusicBeatState
 	{
 		if (!ClientPrefs.funiShaders || skippedIntro)
 			return;
-
 		if (T != null)
 			T.cancel();
-
 		if (chrom != null && setChrom)
 			chrom.setChrome(FlxG.random.float(0.0, 0.002));
-
 		new FlxTimer().start(FlxG.random.float(0.08, 0.12), function(tmr:FlxTimer)
 		{
 			new FlxTimer().start(FlxG.random.float(0.7, 1.6), function(tmr:FlxTimer)

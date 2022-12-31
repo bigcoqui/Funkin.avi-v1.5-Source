@@ -1,7 +1,6 @@
 package;
 
-import GameJolt;
-import GameJolt.GameJoltAPI;
+
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -39,7 +38,6 @@ class Main extends Sprite
 	var framerate:Int = 60; // Wowwowoowowowowowowowowowowowowowowowow wtf dude, start with at least 120 FPS
 	var skipSplash:Bool = true; // Hope we add this to the mod xd
 	var startFullscreen:Bool = false; // N o
-	public static var gjToastManager:GJToastManager; //Toast For Advice
 	public static var fpsVar:FPS;
 
 	public static var focusMusicTween:FlxTween;
@@ -79,8 +77,7 @@ class Main extends Sprite
 
 	private function setupGame():Void
 	{
-		gjToastManager = new GJToastManager();
-		addChild(gjToastManager); //adding the toddler
+
 		
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
@@ -118,9 +115,11 @@ class Main extends Sprite
 		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
 
+		#if desktop
 		Application.current.window.fullscreen = false;
 		Application.current.window.onFocusOut.add(onWindowFocusOut);
 		Application.current.window.onFocusIn.add(onWindowFocusIn);
+		#end
 	}
 
 	var game:FlxGame;
