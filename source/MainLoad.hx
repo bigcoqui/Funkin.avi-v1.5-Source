@@ -1,6 +1,5 @@
 
 package;
-import GameJolt.GameJoltAPI as GameJolt;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
@@ -44,9 +43,6 @@ class MainLoad extends MusicBeatState
 
 	override function create()
 	{
-        GameJolt.connect();
-        GameJolt.authDaUser(FlxG.save.data.gjUser, FlxG.save.data.gjToken); //Loads GameJolt stuff
-
 		FlxG.mouse.visible = true;
 
 		FlxG.worldBounds.set(0,0);
@@ -64,15 +60,15 @@ class MainLoad extends MusicBeatState
 		text.alpha = 0;
 		add(text);
 
-		#if cpp
-		for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/shared/images/characters")))
+		#if sys
+		for (i in HSys.readDirectory("assets/shared/images/characters"))
 		{
 			if (!i.endsWith(".png"))
 				continue;
 			images.push(i);
 		}
 
-		for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/songs")))
+		for (i in HSys.readDirectory("assets/songs"))
 		{
 			music.push(i);
 		}
