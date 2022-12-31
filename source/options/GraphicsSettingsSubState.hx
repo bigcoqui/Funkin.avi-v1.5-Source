@@ -71,7 +71,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			'If checked, you will see some cool visuals.\n(TURN THIS OFF IF YOUR DEVICE CRASHES WITH SHADERS ON)',
 			'funiShaders',
 			'bool',
-			false);
+			true);
 		addOption(option);
         #end
 
