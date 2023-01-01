@@ -31,7 +31,6 @@ using StringTools;
 
 class MainLoad extends MusicBeatState
 {
-
 	var text:FlxText;
 
 	public static var bitmapData:Map<String, FlxGraphic>;
@@ -102,23 +101,20 @@ class MainLoad extends MusicBeatState
 			trace(i);
 		}
 
-
-
 		for (i in music)
 		{
 			trace(i);
 		}
 
-
 		#end
-        if(ClientPrefs.language == null) { //null because there's no selection when a new data starts, btw i tested it and works
-			MusicBeatState.switchState(new LanguageState());
-		} else {
+        //if(ClientPrefs.language == null) { //null because there's no selection when a new data starts, btw i tested it and works
+			MusicBeatState.switchState(new TitleState());
+		/*} else {
 		if(ClientPrefs.language == "Spanish") {
 			MusicBeatState.switchState(new SpanishTitleState());
 		} else {
 		MusicBeatState.switchState(new TitleState());
 	}
-	}
+	}*/
 	}
 	}
