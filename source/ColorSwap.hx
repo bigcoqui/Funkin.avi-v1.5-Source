@@ -66,7 +66,7 @@ class ColorSwapShader extends FlxShader {
 				return color * openfl_Alphav;
 			}
 
-			color = vec4(color.rgb / color.a, color.a);
+			col = vec4(color.rgb / color.a, color.a);
 
 			mat4 colorMultiplier = mat4(0);
 			colorMultiplier[0][0] = openfl_ColorMultiplierv.x;
@@ -74,7 +74,7 @@ class ColorSwapShader extends FlxShader {
 			colorMultiplier[2][2] = openfl_ColorMultiplierv.z;
 			colorMultiplier[3][3] = openfl_ColorMultiplierv.w;
 
-			color = clamp(openfl_ColorOffsetv + (color * colorMultiplier), 0.0, 1.0);
+			col = clamp(openfl_ColorOffsetv + (color * colorMultiplier), 0.0, 1.0);
 
 			if (color.a > 0.0)
 			{
@@ -135,7 +135,7 @@ class ColorSwapShader extends FlxShader {
 				swagColor[1] = 1.0;
 			}
 
-			color = vec4(hsv2rgb(vec3(swagColor[0], swagColor[1], swagColor[2])), swagColor[3]);
+			col = vec4(hsv2rgb(vec3(swagColor[0], swagColor[1], swagColor[2])), swagColor[3]);
 
 			if (awesomeOutline)
 			{
