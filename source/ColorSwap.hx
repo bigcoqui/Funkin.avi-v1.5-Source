@@ -48,7 +48,7 @@ class ColorSwapShader extends FlxShader {
 		uniform bool hasTransform;
 		uniform bool hasColorTransform;
 
-		vec4 flixel_texture2D(sampler2D bitmap, vec2 coord)
+		vec4 texture2D(sampler2D bitmap, vec2 coord)
 		{
 			vec4 color = texture2D(bitmap, coord);
 			if (!hasTransform)
@@ -116,7 +116,8 @@ class ColorSwapShader extends FlxShader {
 
 		void main()
 		{
-			vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
+		  #pragma body
+			vec4 color = texture2D(bitmap, openfl_TextureCoordv);
 
 			vec4 swagColor = vec4(rgb2hsv(vec3(color[0], color[1], color[2])), color[3]);
 
@@ -153,21 +154,6 @@ class ColorSwapShader extends FlxShader {
 				}
 			}
 			gl_FragColor = color;
-
-			/* 
-			if (color.a > 0.5)
-				gl_FragColor = color;
-			else
-			{
-				float a = flixel_texture2D(bitmap, vec2(openfl_TextureCoordv + offset, openfl_TextureCoordv.y)).a +
-						  flixel_texture2D(bitmap, vec2(openfl_TextureCoordv, openfl_TextureCoordv.y - offset)).a +
-						  flixel_texture2D(bitmap, vec2(openfl_TextureCoordv - offset, openfl_TextureCoordv.y)).a +
-						  flixel_texture2D(bitmap, vec2(openfl_TextureCoordv, openfl_TextureCoordv.y + offset)).a;
-				if (color.a < 1.0 && a > 0.0)
-					gl_FragColor = vec4(0.0, 0.0, 0.0, 0.8);
-				else
-					gl_FragColor = color;
-			} */
 		}')
 	@:glVertexSource('
 		attribute float openfl_Alpha;
@@ -192,6 +178,7 @@ class ColorSwapShader extends FlxShader {
 		
 		void main(void)
 		{
+		  #pragma body
 			openfl_Alphav = openfl_Alpha;
 			openfl_TextureCoordv = openfl_TextureCoord;
 
