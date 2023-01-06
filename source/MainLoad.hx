@@ -107,14 +107,14 @@ class MainLoad extends MusicBeatState
 		}
 
 		#end
-        //if(ClientPrefs.language == null) { //null because there's no selection when a new data starts, btw i tested it and works
+        if(ClientPrefs.language == null) { //null because there's no selection when a new data starts, btw i tested it and works
 			MusicBeatState.switchState(new TitleState());
-		/*} else {
+		} else {
 		if(ClientPrefs.language == "Spanish") {
 			MusicBeatState.switchState(new SpanishTitleState());
 		} else {
 		MusicBeatState.switchState(new TitleState());
 	}
-	}*/
+	}
 	}
 	}
